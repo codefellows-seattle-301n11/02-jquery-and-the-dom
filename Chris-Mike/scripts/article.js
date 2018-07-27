@@ -8,12 +8,12 @@ let articles = [];
 function Article (rawDataObj) {
   // TODONE: Use the JS object that is passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
-  this.title = title;
-  this.catagory = catagory;
-  this.author = author;
-  this.authorUrl = authorUrl;
-  this.publishedOn - publishedOn;
-  this.body = body;
+  this.title = rawDataObj.title;
+  this.catagory = rawDataObj.catagory;
+  this.author = rawDataObj.author;
+  this.authorUrl = rawDataObj.authorUrl;
+  this.publishedOn = rawDataObj.publishedOn;
+  this.body = rawDataObj.body;
   articles.push(this);
 }
 
