@@ -3,11 +3,18 @@
 let articles = [];
 
 // COMMENT: What is the purpose of the following function? Why is its name capitalized? Explain the context of "this" within the function. What does "rawDataObj" represent?
-// PUT YOUR RESPONSE HERE
+// This functions is a constructor function, used to build article objects out of raw data strings.  The name is capitalied as a convention to identify constructor functions.  "this" represents the specific instance that is being currently run through the constructor function.  "rawDataObj" would be the data that is used to create the articles, in this case, the variable 'rawData'.
 
 function Article (rawDataObj) {
   // TODO: Use the JS object that is passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
+  this.title = title;
+  this.catagory = catagory;
+  this.author = author;
+  this.authorUrl = authorUrl;
+  this.publishedOn - publishedOn;
+  this.body = body;
+  articles.push(this);
 }
 
 Article.prototype.toHtml = function() {
@@ -16,7 +23,7 @@ Article.prototype.toHtml = function() {
 
   let $newArticle = $('article.template').clone();
   /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
-
+  $('.template').css('display', 'none');
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.attr('data-category', this.category);
 

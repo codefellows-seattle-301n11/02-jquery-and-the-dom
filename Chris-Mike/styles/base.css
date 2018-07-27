@@ -1,0 +1,33 @@
+body {
+    line-height: 1.5;
+    font-size: 100%;
+    color: #313131;
+  }
+  
+  main {
+    margin: 0 20px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  body > header {
+    background: #FFEAAA;
+  }
+  
+  nav ul {
+    display: none;
+    padding: 0;
+    list-style: none;
+    clear: both;
+  }
+  
+  address {
+    color: #777;
+    display: inline-block;
+  }
+  
+  p {
+    font-size: 1em;
+  }
