@@ -1,6 +1,6 @@
 # Lob 02 - jQuery and the Dom
 
-**Author**: Chris Kozlowski and Mike Kermes
+**Author**: Chris Kozlowski and Mike Kermes  
 **Version**: 1.0.0 
 
 ## Overview
@@ -20,5 +20,5 @@ Raw data is an array of objects.  It is passed through a constructor function to
 01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
 
 ## Credits and Collaborations
-forEach() MDN Documentation - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+forEach() MDN Documentation - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach  
 sort() MDN Documentation - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
