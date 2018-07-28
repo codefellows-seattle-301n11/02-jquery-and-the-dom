@@ -34,8 +34,8 @@ Article.prototype.toHtml = function() {
       4. article body, and
       5. publication date. */
 
-  $newArticle.find('address').text(this.author);
-  $newArticle.find('a').text(this.authorUrl);
+  $newArticle.find('a').html(this.author);
+  $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('h1').text(this.title);
   $newArticle.find('.article-body').html(this.body);
   $newArticle.find('time').text(this.publishedOn);
@@ -52,7 +52,7 @@ rawData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
-// TODO: Refactor these for loops using the .forEach() array method.
+// COMPLETE: Refactor these for loops using the .forEach() array method.
 
 rawData.forEach(function(element) {
   articles.push(new Article(element));
@@ -62,11 +62,9 @@ articles.forEach(function(element) {
   $('#articles').append(element.toHtml());
 });
 
-// for(let i = 0; i < articles.length; i++) {
+// REVIEW: below code will hang until TODO about cloned article is handled
+// Once that TODO is done uncomment code
 
-//   // REVIEW: below code will hang until TODO about cloned article is handled
-//   // Once that TODO is done uncomment code
+// COMMENT: (STRETCH) Can you figure out why code hangs?
+// Unil the class temeplate was removed, the code would clone the template exponentially until it would crash.  Removid the template call allowed the clone function to clone only once and then make visible to the DOM.
 
-//   // COMMENT: (STRETCH) Can you figure out why code hangs?
-//   // It has to do with the clone() method
-// }
