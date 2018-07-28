@@ -66,5 +66,5 @@ articles.forEach(function(element) {
 // Once that TODO is done uncomment code
 
 // COMMENT: (STRETCH) Can you figure out why code hangs?
-// Unil the class temeplate was removed, the code would clone the template exponentially until it would crash.  Removid the template call allowed the clone function to clone only once and then make visible to the DOM.
+// Until the class temeplate was removed, the code would clone the template exponentially until it would crash. Remove the template call allowed the clone function to clone only once and then make visible to the DOM.
 
