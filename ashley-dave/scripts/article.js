@@ -49,7 +49,7 @@ for(let i = 0; i < articles.length; i++) {
 
   // REVIEW: below code will hang until TODO about cloned article is handled
   // Once that TODO is done uncomment code
-   
+
   // $('#articles').append(articles[i].toHtml());
 
   // COMMENT: (STRETCH) Can you figure out why code hangs?

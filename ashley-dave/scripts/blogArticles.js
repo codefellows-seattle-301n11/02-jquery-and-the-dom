@@ -1,7 +1,7 @@
 'use strict';
 
-// COMMENT: How is this data utilized within our blog app? What is the structure of this data (your response should include the terms "object", "array", and "key/value pairs")?
-// PUT YOUR RESPONSE HERE
+// COMMENTED: How is this data utilized within our blog app? What is the structure of this data (your response should include the terms "object", "array", and "key/value pairs")?
+// The below content is the raw blog data that will feed into our app. rawData is a global variable. It is an array of objects, where each object is a different post. Within each object, there are key/value pairs that differentiate the various parts of each post (the title, the category, the author, the author URL, the published date, and the body copy).
 
 let rawData = [
   {
