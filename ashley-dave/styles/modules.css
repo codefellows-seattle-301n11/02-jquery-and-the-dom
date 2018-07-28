@@ -49,3 +49,7 @@ nav li {
     padding: .5em .2em;
     border-bottom: 1px solid #ccc;
 }
+
+.template {
+    display: none;
+}
