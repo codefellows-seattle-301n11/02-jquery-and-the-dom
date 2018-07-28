@@ -21,23 +21,25 @@ Article.prototype.toHtml = function() {
   // The clone function allows for a class element to be copied and appended in the DOM.  This prevents the repetetive process of rewriting lines of code.  This function can create duplicates of the elements, so it is best to avoid using it with IDs.
 
   let $newArticle = $('article.template').clone();
-  /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
+  /* COMPLETED: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.attr('data-category', this.category);
-  $newArticle.attr('author-name', this.name);
-  $newArticle.attr('author-url', this.authorUrl);
-  $newArticle.attr('title', this.title);
-  $newArticle.attr('body', this.body);
-  $newArticle.attr('published', this.publishedOn);
 
-  /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
+  /* COMPLETED: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
     We need to fill in:
       1. author name,
       2. author url,
       3. article title,
       4. article body, and
       5. publication date. */
+
+  $newArticle.find('address').text(this.author);
+  $newArticle.find('a').text(this.authorUrl);
+  $newArticle.find('h1').text(this.title);
+  $newArticle.find('.article-body').html(this.body);
+  $newArticle.find('time').text(this.publishedOn);
+  $newArticle.removeClass('template');
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
@@ -61,7 +63,7 @@ for(let i = 0; i < articles.length; i++) {
   // REVIEW: below code will hang until TODO about cloned article is handled
   // Once that TODO is done uncomment code
 
-  // $('#articles').append(articles[i].toHtml());
+  $('#articles').append(articles[i].toHtml());
 
   // COMMENT: (STRETCH) Can you figure out why code hangs?
   // It has to do with the clone() method
