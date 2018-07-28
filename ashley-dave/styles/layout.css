@@ -1,0 +1,14 @@
+header section {
+    max-width: 80%;
+    float: left;
+    padding: 0 0 .2em 1em;
+}
+
+nav {
+    padding: 0.1em;
+}
+
+select {
+    width: 90%;
+    margin: .2em 5%;
+}
