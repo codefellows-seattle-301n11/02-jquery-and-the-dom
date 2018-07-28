@@ -1,0 +1,22 @@
+body {
+    line-height: 1.5;
+    font-size: 100%;
+    color: #313131;
+}
+
+main {
+    margin: 0 20px;
+}
+
+body > header {
+    background: #FFEAAA;
+}
+
+img {
+    max-width: 100%;
+}
+
+#filters {
+    padding: 0;
+    list-style: none;
+}
