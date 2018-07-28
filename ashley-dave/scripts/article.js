@@ -17,7 +17,7 @@ function Article (rawDataObj) {
 }
 
 Article.prototype.toHtml = function() {
-  // COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
+  // COMMENTED: What is the benefit of cloning the article? (see the jQuery docs)
   // The clone function allows for a class element to be copied and appended in the DOM.  This prevents the repetetive process of rewriting lines of code.  This function can create duplicates of the elements, so it is best to avoid using it with IDs.
 
   let $newArticle = $('article.template').clone();
@@ -41,30 +41,32 @@ Article.prototype.toHtml = function() {
   $newArticle.find('time').text(this.publishedOn);
   $newArticle.removeClass('template');
 
-  // REVIEW: Display the date as a relative number of 'days ago'
+  // REVIEWED: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
   return $newArticle;
 };
 
 rawData.sort(function(a,b) {
-  // REVIEW: Take a look at this sort method; This may be the first time we've seen it. Look at the docs and think about how the dates would be sorted if the callback were not included in this method.
+  // REVIEWED: Take a look at this sort method; This may be the first time we've seen it. Look at the docs and think about how the dates would be sorted if the callback were not included in this method.
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
 
 // TODO: Refactor these for loops using the .forEach() array method.
 
-for(let i = 0; i < rawData.length; i++) {
-  articles.push(new Article(rawData[i]));
-}
+rawData.forEach(function(element) {
+  articles.push(new Article(element));
+});
 
-for(let i = 0; i < articles.length; i++) {
+articles.forEach(function(element) {
+  $('#articles').append(element.toHtml());
+});
 
-  // REVIEW: below code will hang until TODO about cloned article is handled
-  // Once that TODO is done uncomment code
+// for(let i = 0; i < articles.length; i++) {
 
-  $('#articles').append(articles[i].toHtml());
+//   // REVIEW: below code will hang until TODO about cloned article is handled
+//   // Once that TODO is done uncomment code
 
-  // COMMENT: (STRETCH) Can you figure out why code hangs?
-  // It has to do with the clone() method
-}
+//   // COMMENT: (STRETCH) Can you figure out why code hangs?
+//   // It has to do with the clone() method
+// }
