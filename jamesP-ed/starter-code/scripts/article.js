@@ -22,7 +22,7 @@ Article.prototype.toHtml = function() {
   console.log('im in');
   let $newArticle = $('article.template').clone();
   /* TODONE: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
-  //$('article.template').css({'display' : 'block'});
+  $('article.template').css({'display' : 'block'});
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.attr('data-category', this.category);
 
