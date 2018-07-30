@@ -23,10 +23,10 @@ Article.prototype.toHtml = function() {
   let $newArticle = $('article.template').clone();
   $newArticle.removeClass('template');
   /* TODONE: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
-  $('article.template').css({'display' : 'block'});
+  $('article.template').css({'display' : 'none'});
   if (!this.publishedOn) $newArticle.addClass('draft');
 
-  /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
+  /* TODONE: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
     We need to fill in:
       1. author name,
       2. author url,
@@ -36,10 +36,10 @@ Article.prototype.toHtml = function() {
 
   $newArticle.attr('data-category', this.category);
   $newArticle.find('a').text(this.author);
-  //$newArticle.find('a').add.href(this.authorUrl);
+  $newArticle.find('a').attr('href', this.authorUrl);
   $newArticle.find('h1').html(this.title);
   $newArticle.find('section').html(this.body);
-  //(this.publishedOn);
+  $newArticle.find('time').attr('datetime', this.publishedOn);
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
