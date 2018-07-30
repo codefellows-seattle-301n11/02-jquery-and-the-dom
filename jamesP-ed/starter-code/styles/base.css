@@ -1,0 +1,26 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  color: #272323;
+  background-color: rgb(235, 195, 235);
+  float: left;
+}
+
+header {
+  max-width: 100%;
+  padding: .1em;
+  margin: .1em;
+}
+
+main {
+  max-width: 100%;
+  margin: 2%;
+  padding: 2%;
+}
+
+footer {
+  max-width: 100%;
+  margin: 2%;
+  padding: 90% 2% 2% 2%;
+  text-align: center;
+}
