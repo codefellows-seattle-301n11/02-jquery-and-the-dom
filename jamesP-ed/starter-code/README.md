@@ -4,10 +4,10 @@
 **Version**: 1.0.0 (increment the patch/fix version number up if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code Fellows 301 class. (i.e. What's your problem domain?) -->
+This application displays a group of Ipsums in order of published date with the most recent first, and lets you go to it's webpage bu clicking on the author's name.
 
 ## Getting Started
-This app is built and ready to go, just run it.
+This app is built and ready to go, just run it. Click on the author's name to go to that website.
 
 ## Architecture
 This program utilizes icons.css, normalize.css, gitignore, eslintignore, and eslintrc.

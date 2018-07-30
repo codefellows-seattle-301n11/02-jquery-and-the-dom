@@ -19,12 +19,12 @@ function Article (rawDataObj) {
 Article.prototype.toHtml = function() {
   // COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
   // TO keep from having to rewrite the code to push the articles to the dom. Cloning not only copies all of the contents but also takes with it all of it's properties, so if CSS is aplied to the original it will be applied to the clone as well.
-  console.log('im in');
+
   let $newArticle = $('article.template').clone();
+  $newArticle.removeClass('template');
   /* TODONE: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
   $('article.template').css({'display' : 'block'});
   if (!this.publishedOn) $newArticle.addClass('draft');
-  $newArticle.attr('data-category', this.category);
 
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
     We need to fill in:
@@ -34,11 +34,16 @@ Article.prototype.toHtml = function() {
       4. article body, and
       5. publication date. */
 
-  $newArticle.find('Title', this.title)
+  $newArticle.attr('data-category', this.category);
+  $newArticle.find('a').text(this.author);
+  //$newArticle.find('a').add.href(this.authorUrl);
+  $newArticle.find('h1').html(this.title);
+  $newArticle.find('section').html(this.body);
+  //(this.publishedOn);
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + Math.floor((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
-  $newArticle.append('<hr>');
+  $newArticle.append();
   return $newArticle;
 
 };
@@ -58,9 +63,8 @@ rawData.forEach(function(articleObject) {
 articles.forEach(function(article) {
   // REVIEW: below code will hang until TODO about cloned article is handled
   // Once that TODO is done uncomment code
-  //$('#articles').append(article.toHtml());
+  $('#articles').append(article.toHtml());
 
   // COMMENT: (STRETCH) Can you figure out why code hangs?
   // The clone function is copying the html article and for each time it goes through the html grows exponentially.
 });
-console.log(articles);
